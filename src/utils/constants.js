@@ -1,14 +1,6 @@
-cart_height = 0.841
-display_medium = 0.616
-roof = 0.219
-module = 0.372
+export const cart_height = 0.841;
+export const module_height = 0.363;
+export const display_medium_height = 0.616;
+export const roof_height = 0.084;
 
-depth
-: 
-0.43125230073928833
-height
-: 
-0.4000076353549957
-width
-: 
-0.29527220129966736
+export const dark_color = '#898989'

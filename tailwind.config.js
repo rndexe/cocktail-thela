@@ -7,10 +7,14 @@ export default {
                 bg: '#BBBBBB',
                 text: '#FFFFFF',
                 black: '#262626',
+                highlight: '#404040',
             },
             fontFamily: {
                 heading: 'Viaoda Libre',
                 body: 'Simonetta',
+            },
+            borderRadius: {
+                lg: '1rem',
             },
         },
     },
