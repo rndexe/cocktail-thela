@@ -7,7 +7,7 @@ Files: Dishwasher.glb [7.63MB] > /home/rnd/code/3D/thela/cocktail-thela-spa/src/
 import { useGLTF } from '@react-three/drei';
 
 export function Model(props) {
-    const { nodes, materials } = useGLTF('/Dishwasher.glb');
+    const { nodes, materials } = useGLTF('/models/Dishwasher.glb');
     return (
         <group {...props} dispose={null}>
             <mesh geometry={nodes.mesh_0.geometry} material={materials.PaletteMaterial001} />
@@ -15,4 +15,4 @@ export function Model(props) {
     );
 }
 
-useGLTF.preload('/Dishwasher.glb');
+useGLTF.preload('/models/Dishwasher.glb');

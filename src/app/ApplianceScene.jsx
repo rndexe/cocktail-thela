@@ -1,5 +1,5 @@
-import { Model as Dishwasher } from '../objects/Dish';
-import { Model as IceMachine } from '../objects/Ice';
+import { Model as Dishwasher } from '../objects/Dishwasher';
+import { Model as IceMachine } from '../objects/Ice_machine';
 import { useCartStore } from '../store';
 
 export default function Appliances({ all }) {

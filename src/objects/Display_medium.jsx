@@ -2,9 +2,9 @@ import { useGLTF } from '@react-three/drei';
 import { useThemeTextures, getThemeColor } from './utils';
 
 export function Model({ theme, ...props }) {
-    const { nodes } = useGLTF('/Display.glb');
+    const { nodes } = useGLTF('/models/Display_med.glb');
 
-    const [tex1, tex2] = useThemeTextures(theme, 'display_medium_apo');
+    const [tex1, tex2] = useThemeTextures(theme, 'display_medium');
     const color = getThemeColor(theme);
 
     return (
@@ -16,10 +16,8 @@ export function Model({ theme, ...props }) {
                 <meshStandardMaterial map={tex2} color={color} />
             </mesh>
             <mesh geometry={nodes.Mesh_2.geometry} material={nodes.Mesh_2.material} />
-            <mesh geometry={nodes.Mesh_3.geometry} material={nodes.Mesh_3.material} />
-            <mesh geometry={nodes.Mesh_4.geometry} material={nodes.Mesh_4.material} />
         </group>
     );
 }
 
-useGLTF.preload('/Display.glb');
+useGLTF.preload('/models/Display_med.glb');

@@ -2,8 +2,8 @@ import { useGLTF } from '@react-three/drei';
 import { useThemeTextures, getThemeColor } from './utils';
 
 export function Model({ theme, ...props }) {
-    const { nodes } = useGLTF('/Roof.glb');
-    const [tex1, tex2] = useThemeTextures(theme, 'roof_apo');
+    const { nodes } = useGLTF('/models/Roof.glb');
+    const [tex1, tex2] = useThemeTextures(theme, 'roof');
     const color = getThemeColor(theme);
 
     return (
@@ -15,12 +15,8 @@ export function Model({ theme, ...props }) {
             <mesh geometry={nodes.Mesh_2.geometry}>
                 <meshStandardMaterial map={tex2} color={color} />
             </mesh>
-            <mesh geometry={nodes.Mesh_3.geometry} material={nodes.Mesh_3.material} />
-            <mesh geometry={nodes.Mesh_4.geometry} material={nodes.Mesh_4.material} />
-            <mesh geometry={nodes.Mesh_5.geometry} material={nodes.Mesh_5.material} />
-            <mesh geometry={nodes.Mesh_6.geometry} material={nodes.Mesh_6.material} />
         </group>
     );
 }
 
-useGLTF.preload('/Roof.glb');
+useGLTF.preload('/models/Roof.glb');

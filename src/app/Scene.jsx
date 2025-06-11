@@ -1,7 +1,5 @@
 import { useCartStore, usePageStore } from '../store';
 import { Model as Cart } from '../objects/Cart';
-import { Model as Wine } from '../objects/Wine';
-import { Model as Rock } from '../objects/Rock';
 import { Page } from '../store';
 import Modules from './ModulesScene';
 import Display from './DisplayScene';
@@ -41,8 +39,7 @@ function FullThela({ theme, ...props }) {
             <Display theme={theme} choice={'medium'} />
             <Top theme={theme} choice={'wooden'} />
             <Appliances all={true} />
-            {/* <Wine position={[0, 1.27, 0]} /> */}
-            {/* <Glass/> */}
+            <Glasses all={true}/>
         </group>
     );
 }
@@ -59,9 +56,6 @@ function Thela({ theme, ...props }) {
             {top && <Top theme={theme} />}
             <Appliances />
             <Glasses />
-            {/* 
-            {page != Page.Modules && page != Page.Display && <Wine position={[0, 1.27, 0]} />}
-            {(page == Page.Glass || page == Page.Name) && <Rock position={[-0.34, 0.15, -0.1]} />} */}
         </group>
     );
 }

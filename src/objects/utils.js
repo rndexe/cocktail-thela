@@ -13,7 +13,7 @@ export function getThemeColor(theme) {
 }
 
 export function useThemeTextures(theme, path) {
-    const [tex1, tex2] = useTexture([`/${path}/baseColor_1.jpg`, `/${path}/baseColor_2.jpg`]);
+    const [tex1, tex2] = useTexture([`/textures/${path}/baseColor_1.jpg`, `/textures/${path}/baseColor_2.jpg`]);
     tex1.flipY = false;
     tex2.flipY = false;
 
@@ -24,6 +24,29 @@ export function useThemeTextures(theme, path) {
         default:
         case 'apothecary':
             return [tex1, tex2];
+            break;
+    }
+}
+
+export function useThemeTexturesCart(theme) {
+    const [tex1, tex2, tex3, tex4] = useTexture([
+        '/textures/cart/baseColor_6.jpg',
+        '/textures/cart/baseColor_7.jpg',
+        '/textures/cart/baseColor_8.jpg',
+        '/textures/cart/baseColor_9.jpg',
+    ]);
+    tex1.flipY = false;
+    tex2.flipY = false;
+    tex3.flipY = false;
+    tex4.flipY = false;
+
+    switch (theme) {
+        case 'concert':
+            return [null, null, null, null];
+        case 'summer':
+        default:
+        case 'apothecary':
+            return [tex1, tex2, tex3, tex4];
             break;
     }
 }

@@ -2,15 +2,14 @@ import { useGLTF } from '@react-three/drei';
 import { useThemeTextures, getThemeColor } from './utils';
 
 export function Model({ theme, type, ...props }) {
-    const { nodes } = useGLTF('/Rum.glb');
+    const { nodes } = useGLTF('/models/Module.glb');
 
-    const [tex1, tex2] = useThemeTextures(theme, 'rum_apo');
+    const [tex1, tex2] = useThemeTextures(theme, 'module');
     const color = getThemeColor(theme);
 
     return (
         <group {...props} dispose={null}>
-            {/* <mesh geometry={nodes.Mesh_0.geometry} material={nodes.Mesh_0.material} /> */}
-            <mesh geometry={nodes.Mesh_1.geometry} material={nodes.Mesh_1.material} />
+            <mesh geometry={nodes.Mesh_0.geometry} material={nodes.Mesh_0.material} />
             <mesh geometry={nodes.Mesh_2.geometry}>
                 <meshStandardMaterial map={tex1} color={color} />
             </mesh>
@@ -25,4 +24,4 @@ export function Model({ theme, type, ...props }) {
     );
 }
 
-useGLTF.preload('/Rum.glb');
+useGLTF.preload('/models/Module.glb');

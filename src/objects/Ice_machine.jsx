@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei';
 
 export function Model(props) {
-    const { nodes } = useGLTF('/models/Wine_glasses.glb');
+    const { nodes } = useGLTF('/models/Ice_machine.glb');
     return (
         <group {...props} dispose={null}>
             <mesh geometry={nodes.mesh_0.geometry} material={nodes.mesh_0.material} />
@@ -9,4 +9,4 @@ export function Model(props) {
     );
 }
 
-useGLTF.preload('/models/Wine_glasses.glb');
+useGLTF.preload('/models/Ice_machine.glb');

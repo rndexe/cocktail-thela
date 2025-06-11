@@ -1,25 +1,20 @@
-import { useGLTF, useTexture } from '@react-three/drei';
-import { getThemeColor } from './utils';
+import { useGLTF } from '@react-three/drei';
+import { getThemeColor, useThemeTexturesCart } from './utils';
 
 export function Model({ theme, ...props }) {
-    const { nodes } = useGLTF('/Cart_simplified.glb');
+    const { nodes } = useGLTF('/models/Cart.glb');
 
-    const [tex1, tex2, tex3, tex4] = useThemeTextures(theme);
+    const [tex1, tex2, tex3, tex4] = useThemeTexturesCart(theme);
     const color = getThemeColor(theme);
 
     return (
         <group {...props} dispose={null}>
             <mesh geometry={nodes.Mesh_0.geometry}>
-                <meshStandardMaterial color={'black'} />
+                <meshStandardMaterial color={'grey'} />
             </mesh>
-            {/* <mesh geometry={nodes.Mesh_1.geometry} material={nodes.Mesh_1.material} /> */}
             <mesh geometry={nodes.Mesh_2.geometry}>
                 <meshStandardMaterial color={'black'} />
             </mesh>
-            {/* <mesh geometry={nodes.Mesh_3.geometry} material={nodes.Mesh_3.material} /> */}
-            {/* <mesh geometry={nodes.Mesh_4.geometry} material={nodes.Mesh_4.material} /> */}
-            {/* <mesh geometry={nodes.Mesh_5.geometry} material={nodes.Mesh_5.material} /> */}
-            {/* <mesh geometry={nodes.Mesh_6.geometry} material={nodes.Mesh_6.material} /> */}
             <mesh geometry={nodes.Mesh_7.geometry}>
                 <meshStandardMaterial map={tex1} color={color} />
             </mesh>
@@ -27,16 +22,14 @@ export function Model({ theme, ...props }) {
                 <meshStandardMaterial map={tex2} color={color} />
             </mesh>
             <mesh geometry={nodes.Mesh_9.geometry}>
-                <meshStandardMaterial color={'black'} />
+                <meshStandardMaterial color={'grey'} />
             </mesh>
-            {/* <mesh geometry={nodes.Mesh_9.geometry} material={nodes.Mesh_9.material} color={'black'} /> */}
             <mesh geometry={nodes.Mesh_10.geometry}>
                 <meshStandardMaterial map={tex3} color={color} />
             </mesh>
             <mesh geometry={nodes.Mesh_11.geometry}>
                 <meshStandardMaterial map={tex4} color={color} />
             </mesh>
-            {/* <mesh geometry={nodes.Mesh_12.geometry} material={nodes.Mesh_12.material} /> */}
             <mesh geometry={nodes.Mesh_13.geometry}>
                 <meshStandardMaterial color="#b5a642" metalness={1} roughness={0.3} />
             </mesh>
@@ -47,27 +40,4 @@ export function Model({ theme, ...props }) {
     );
 }
 
-function useThemeTextures(theme) {
-    const [tex1, tex2, tex3, tex4] = useTexture([
-        '/cart_apo/baseColor_6.jpg',
-        '/cart_apo/baseColor_7.jpg',
-        '/cart_apo/baseColor_8.jpg',
-        '/cart_apo/baseColor_9.jpg',
-    ]);
-    tex1.flipY = false;
-    tex2.flipY = false;
-    tex3.flipY = false;
-    tex4.flipY = false;
-
-    switch (theme) {
-        case 'concert':
-            return [null, null, null, null];
-        case 'summer':
-        default:
-        case 'apothecary':
-            return [tex1, tex2, tex3, tex4];
-            break;
-    }
-}
-
-useGLTF.preload('/Cart_simplified.glb');
+useGLTF.preload('/models/Cart.glb');

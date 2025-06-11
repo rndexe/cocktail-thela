@@ -3,7 +3,7 @@ import { Page } from '../store';
 export const PageInfo = {
     Landing: {
         Heading: 'Cocktail Thela',
-        button1: null,
+        button1: Page.Landing,
         button1text: 'View Carts',
         button2: Page.Theme,
         button2text: 'Make Cart',
@@ -54,7 +54,7 @@ export const PageInfo = {
         Heading: 'Add your Name',
         button1: Page.Glass,
         button1text: 'Back',
-        button2: null,
+        button2: Page.Landing,
         button2text: 'Submit',
     },
 };
