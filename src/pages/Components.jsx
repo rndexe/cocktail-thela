@@ -1,5 +1,6 @@
 import { usePageStore, Page } from '../store';
 import { PageInfo } from './pageinfo';
+import createThela from '../utils/createThela';
 import { clsx } from 'clsx';
 
 export function Header() {
@@ -35,7 +36,7 @@ export function NavigationSection() {
             </Button>
             <Button
                 onClick={() => {
-                    setPage(PageInfo[page].button2);
+                    page == Page.Name ? createThela() : setPage(PageInfo[page].button2);
                 }}
                 // className="basis-1/2 py-2 rounded-r-3xl">
                 className={clsx(buttonClass, 'rounded-r-3xl')}>

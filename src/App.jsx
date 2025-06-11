@@ -6,7 +6,7 @@ import Scene from './app/Scene';
 function App() {
     return (
         <>
-            <Canvas camera={{ position: [0, 3, 7], fov: 25 }}>
+            <Canvas gl={{ preserveDrawingBuffer: true }} camera={{ position: [0, 3, 7], fov: 25 }}>
                 <Stats />
                 <Grid
                     args={[8, 8]}

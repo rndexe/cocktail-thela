@@ -7,6 +7,7 @@ import AppliancePage from './AppliancePage';
 import TopPage from './TopPage';
 import GlassPage from './GlassPage';
 import { StoreLogger1, StoreLogger2 } from '../utils/StoreLogger';
+import { NamePage } from './NamePage';
 
 export default function UI() {
     return (
@@ -18,8 +19,8 @@ export default function UI() {
                     <NavigationSection />
                 </ButtonSection>
             </div>
-            <StoreLogger1 />
-            <StoreLogger2 />
+            {/* <StoreLogger1 /> */}
+            {/* <StoreLogger2 /> */}
         </div>
     );
 }
@@ -41,12 +42,8 @@ function PageUI() {
         case Page.Appliances:
             return <AppliancePage />;
         case Page.Glass:
-            return <GlassPage/>
+            return <GlassPage />;
         case Page.Name:
-            return (
-                <div className="w-full mb-1">
-                    <input className="w-full rounded-lg bg-black text-2xl p-4" type="text"></input>
-                </div>
-            );
+            return <NamePage />;
     }
 }

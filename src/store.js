@@ -41,6 +41,7 @@ export const useCartStore = create((set, get) => ({
     top: null,
     appliances: [false, false, false],
     glasses: [false, false, false],
+    name: null,
     setTheme: (newTheme) => set({ theme: newTheme }),
     getTotal: () => get().modules.filter(Boolean).length,
     setModules: (module, add) =>
@@ -56,6 +57,7 @@ export const useCartStore = create((set, get) => ({
         }),
     setDisplay: (display) => set({ display: display }),
     setTop: (top) => set({ top: top }),
+    setName: (name) => set({ name: name }),
     setAppliances: (appliance) =>
         set((state) => {
             const newAppliances = [...state.appliances];
