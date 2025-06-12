@@ -24,7 +24,8 @@ export const usePageStore = create()(
     persist(
         (set) => ({
             page: Page.Landing,
-            setPage: (newPage) => set({ page: newPage }),
+            id: null,
+            setPage: (newPage, id) => set({ page: newPage, id: id }),
         }),
         {
             name: 'page-nav',
@@ -33,7 +34,7 @@ export const usePageStore = create()(
     ),
 );
 
-export const useCartStore = create((set, get) => ({
+const initialState = {
     theme: null,
     modulecount: 0,
     modules: [null, null, null, null, null],
@@ -42,6 +43,9 @@ export const useCartStore = create((set, get) => ({
     appliances: [false, false, false],
     glasses: [false, false, false],
     name: null,
+};
+export const useCartStore = create((set, get) => ({
+    ...initialState,
     setTheme: (newTheme) => set({ theme: newTheme }),
     getTotal: () => get().modules.filter(Boolean).length,
     setModules: (module, add) =>
@@ -98,4 +102,5 @@ export const useCartStore = create((set, get) => ({
                 glasses: newGlasses,
             };
         }),
+    reset: () => set(initialState),
 }));

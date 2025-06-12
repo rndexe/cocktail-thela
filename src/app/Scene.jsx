@@ -24,6 +24,10 @@ export default function Scene() {
                 </group>
             );
             break;
+        case Page.ViewCarts:
+            return null;
+        case Page.ViewSingleCart:
+            return <Thela theme={theme} />;
         default:
             return <Thela theme={theme} />;
     }
@@ -39,21 +43,20 @@ function FullThela({ theme, ...props }) {
             <Display theme={theme} choice={'medium'} />
             <Top theme={theme} choice={'wooden'} />
             <Appliances all={true} />
-            <Glasses all={true}/>
+            <Glasses all={true} />
         </group>
     );
 }
 
 function Thela({ theme, ...props }) {
-    const display = useCartStore((s) => s.display);
+    // const display = useCartStore((s) => s.display);
 
     return (
         <group position-y={-0.5} {...props}>
             <Cart theme={theme} />
             <Modules theme={theme} />
-            {display && <Display theme={theme} />}
-
-            {top && <Top theme={theme} />}
+            <Display theme={theme} />
+            <Top theme={theme} />
             <Appliances />
             <Glasses />
         </group>

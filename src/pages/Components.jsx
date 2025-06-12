@@ -25,25 +25,29 @@ export function NavigationSection() {
     const isLanding = page == Page.Landing;
     const buttonClass = clsx('basis-1/2', isLanding && 'py-4', !isLanding && 'py-0');
 
-    return (
-        <div className="flex gap-px">
-            <Button
-                onClick={() => {
-                    setPage(PageInfo[page].button1);
-                }}
-                className={clsx(buttonClass, 'rounded-l-3xl')}>
-                {PageInfo[page].button1text}
-            </Button>
-            <Button
-                onClick={() => {
-                    page == Page.Name ? createThela() : setPage(PageInfo[page].button2);
-                }}
-                // className="basis-1/2 py-2 rounded-r-3xl">
-                className={clsx(buttonClass, 'rounded-r-3xl')}>
-                {PageInfo[page].button2text}
-            </Button>
-        </div>
-    );
+    if (page != Page.ViewCarts && page != Page.ViewSingleCart) {
+        return (
+            <div className="flex gap-px">
+                <Button
+                    onClick={() => {
+                        setPage(PageInfo[page].button1);
+                    }}
+                    className={clsx(buttonClass, 'rounded-l-3xl')}>
+                    {PageInfo[page].button1text}
+                </Button>
+                <Button
+                    onClick={() => {
+                        page == Page.Name ? createThela() : setPage(PageInfo[page].button2);
+                    }}
+                    // className="basis-1/2 py-2 rounded-r-3xl">
+                    className={clsx(buttonClass, 'rounded-r-3xl')}>
+                    {PageInfo[page].button2text}
+                </Button>
+            </div>
+        );
+    } else {
+        return null;
+    }
 }
 
 export function Button({ children, className, ...props }) {

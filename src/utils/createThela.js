@@ -27,7 +27,7 @@ export default async function createThela() {
     formData.append('image', file);
 
     try {
-        const response = await fetch('http://localhost:8090/addThela', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/addThela`, {
             method: 'POST',
             body: formData,
         });
