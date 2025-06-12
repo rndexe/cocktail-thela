@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#pocketbase related things
+backend/pb_data
+backend/pb_public
+# backend/pocketbase

@@ -1,11 +1,11 @@
 {
-  "name": "cocktail-thela-spa",
+  "name": "cocktail-thela",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && rm -rf ../backend/pb_public/* && cp dist/* -r ../backend/pb_public/",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
