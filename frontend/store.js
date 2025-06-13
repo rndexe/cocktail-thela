@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
 
 export const Page = {
     Landing: 'Landing',
@@ -16,20 +15,6 @@ export const Page = {
 
 export const glass_names = ['rocks', 'highball', 'martini'];
 export const appliances_names = ['dishwasher', 'ice-machine', 'solar-panel'];
-
-export const usePageStore = create()(
-    persist(
-        (set) => ({
-            page: Page.Landing,
-            id: null,
-            setPage: (newPage, id) => set({ page: newPage, id: id }),
-        }),
-        {
-            name: 'page-nav',
-            storage: createJSONStorage(() => sessionStorage),
-        },
-    ),
-);
 
 const initialState = {
     theme: null,

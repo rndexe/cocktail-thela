@@ -1,15 +1,13 @@
-import { useCartStore, usePageStore, Page } from '../store';
+import { useCartStore } from '../store';
 import { Header, Footer, Navigation, Options } from '../utils/Components';
 
 export default function ThemePage() {
-    const setPage = usePageStore((s) => s.setPage);
-
     return (
         <>
             <Header text={'Choose a Theme'} />
             <Footer>
                 <Themes />
-                <Navigation actions={[() => setPage(Page.Landing), () => setPage(Page.Modules)]} />
+                <Navigation actions={['~/', '/modules']} />
             </Footer>
         </>
     );

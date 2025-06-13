@@ -1,13 +1,12 @@
 import { useCartStore } from '../store';
-import { glass_names } from '../pages/GlassPage';
-import { appliances_names } from '../pages/AppliancePage';
+import { glass_names, appliances_names } from '../store';
 
 export default async function createThela() {
     const state = useCartStore.getState();
     const formData = new FormData();
 
-    const app_record = appliances.filter((_, index) => state.appliances[index]).join(', ');
-    const glass_record = glasses.filter((_, index) => state.glasses[index]).join(', ');
+    const app_record = appliances_names.filter((_, index) => state.appliances[index]).join(', ');
+    const glass_record = glass_names.filter((_, index) => state.glasses[index]).join(', ');
 
     formData.append('name', state.name);
     formData.append('theme', state.theme);

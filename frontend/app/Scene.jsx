@@ -1,20 +1,20 @@
-import { useCartStore, usePageStore } from '../store';
+import { useCartStore } from '../store';
 import { Model as Cart } from '../objects/Cart';
-import { Page } from '../store';
 import Modules from './ModulesScene';
 import Display from './DisplayScene';
 import Top from './TopScene';
 import Appliances from './ApplianceScene';
 import Glasses from './GlassScene';
+import { useLocation } from 'wouter';
 
 export default function Scene() {
-    const page = usePageStore((s) => s.page);
+    const [location] = useLocation();
     const theme = useCartStore((s) => s.theme);
 
-    switch (page) {
-        case Page.Landing:
+    switch (location) {
+        case '/':
             return <FullThela theme="apothecary" />;
-        case Page.Theme:
+        case '/make/theme':
             return (
                 <group scale={0.5} position={[0, 0, 0.5]}>
                     <FullThela theme="summer" />
@@ -22,10 +22,8 @@ export default function Scene() {
                     <FullThela theme="concert" position-x={1} position-z={-1} />
                 </group>
             );
-        case Page.ViewCarts:
+        case '/view/':
             return null;
-        case Page.ViewSingleCart:
-            return <Thela theme={theme} />;
         default:
             return <Thela theme={theme} />;
     }

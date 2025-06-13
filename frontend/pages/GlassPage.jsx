@@ -1,15 +1,13 @@
-import { useCartStore, usePageStore, Page, glass_names } from '../store';
+import { useCartStore, glass_names } from '../store';
 import { Header, Footer, Navigation, Options } from '../utils/Components';
 
 export default function GlassPage() {
-    const setPage = usePageStore((s) => s.setPage);
-
     return (
         <>
             <Header text={'Choose your Glasses'} />
             <Footer>
                 <Glasses />
-                <Navigation actions={[() => setPage(Page.Appliances), () => setPage(Page.Name)]} />
+                <Navigation actions={['/appliances', '/submit']} />
             </Footer>
         </>
     );

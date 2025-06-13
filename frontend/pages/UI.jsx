@@ -1,4 +1,3 @@
-import { usePageStore, Page } from '../store';
 import { Header, Footer, Navigation } from '../utils/Components';
 import ThemePage from './ThemePage';
 import ModulesPage from './ModulesPage';
@@ -8,53 +7,45 @@ import TopPage from './TopPage';
 import GlassPage from './GlassPage';
 import CartsPage from './CartsPage';
 import SingleCartPage from './SingleCartPage';
-import { NamePage } from './NamePage';
+import NamePage from './NamePage';
+import { Switch, Route } from 'wouter';
 
 export default function UI() {
     return (
         <div className="absolute inset-0 pointer-events-none">
             <div className="h-full flex flex-col justify-between px-2 pt-6 pb-1">
-                <PageUI />
+                <Switch>
+                    <Route path="/" component={Landing} />
+                    <Route path="/make" nest>
+                        <Route path="/theme" component={ThemePage} />
+                        <Route path="/modules" component={ModulesPage} />
+                        <Route path="/display" component={DisplayPage} />
+                        <Route path="/top" component={TopPage} />
+                        <Route path="/appliances" component={AppliancePage} />
+                        <Route path="/glass" component={GlassPage} />
+                        <Route path="/submit" component={NamePage} />
+                    </Route>
+
+                    <Route path="/view" nest>
+                        <Route path="/" component={CartsPage} />
+                        <Route path="/:id" component={SingleCartPage} />
+                    </Route>
+
+                    <Route>404, not found</Route>
+                </Switch>
+                {/* <PageUI /> */}
             </div>
         </div>
     );
 }
 
-function PageUI() {
-    const page = usePageStore((state) => state.page);
-    const setPage = usePageStore((state) => state.setPage);
-
-    switch (page) {
-        case Page.Landing:
-            return (
-                <>
-                    <Header text={'Cocktail Thela'} type={'landing'} />
-                    <Footer>
-                        <Navigation
-                            thick
-                            texts={['View Carts', 'Make Cart']}
-                            actions={[() => setPage(Page.ViewCarts), () => setPage(Page.Theme)]}
-                        />
-                    </Footer>
-                </>
-            );
-        case Page.Theme:
-            return <ThemePage />;
-        case Page.Modules:
-            return <ModulesPage />;
-        case Page.Display:
-            return <DisplayPage />;
-        case Page.Top:
-            return <TopPage />;
-        case Page.Appliances:
-            return <AppliancePage />;
-        case Page.Glass:
-            return <GlassPage />;
-        case Page.Name:
-            return <NamePage />;
-        case Page.ViewCarts:
-            return <CartsPage />;
-        case Page.ViewSingleCart:
-            return <SingleCartPage />;
-    }
+function Landing() {
+    return (
+        <>
+            <Header text={'Cocktail Thela'} type={'landing'} />
+            <Footer>
+                <Navigation thick texts={['View Carts', 'Make Cart']} actions={['/view', '/make/theme']} />
+            </Footer>
+        </>
+    );
 }
