@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { useCartStore } from '../store';
-import { Header, Footer, Navigation } from './Components';
+import { useCartStore, usePageStore, Page } from '../store';
+import { Header, Footer, Navigation } from '../utils/Components';
 
 export default function ModulesPage() {
+    const setPage = usePageStore((s) => s.setPage);
+
     return (
         <>
             <Header text={'Choose Alcohol Modules'} />
@@ -14,7 +16,7 @@ export default function ModulesPage() {
                     <CounterButton text="Tequila" />
                     <CounterButton text="Vodka" className="col-span-2 w-1/2 justify-self-center" />
                 </div>
-                <Navigation />
+                <Navigation actions={[() => setPage(Page.Theme), () => setPage(Page.Display)]} />
             </Footer>
         </>
     );

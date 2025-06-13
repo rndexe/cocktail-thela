@@ -1,7 +1,7 @@
 import { Page, usePageStore, useCartStore } from '../store';
 import { getThelaById } from '../utils/getThelas';
 import { useEffect } from 'react';
-import { Footer, Header } from './Components';
+import { Footer, Header } from '../utils/Components';
 
 export default function CartsPage() {
     const id = usePageStore((s) => s.id);

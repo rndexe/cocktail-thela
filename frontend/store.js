@@ -14,6 +14,9 @@ export const Page = {
     ViewSingleCart: 'ViewSingleCart',
 };
 
+export const glass_names = ['rocks', 'highball', 'martini'];
+export const appliances_names = ['dishwasher', 'ice-machine', 'solar-panel'];
+
 export const usePageStore = create()(
     persist(
         (set) => ({

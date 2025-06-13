@@ -1,15 +1,15 @@
-import { useCartStore } from '../store';
-import { Header, Footer, Navigation, Options } from './Components';
-
-export const glass_names = ['rocks', 'highball', 'martini'];
+import { useCartStore, usePageStore, Page, glass_names } from '../store';
+import { Header, Footer, Navigation, Options } from '../utils/Components';
 
 export default function GlassPage() {
+    const setPage = usePageStore((s) => s.setPage);
+
     return (
         <>
             <Header text={'Choose your Glasses'} />
             <Footer>
                 <Glasses />
-                <Navigation />
+                <Navigation actions={[() => setPage(Page.Appliances), () => setPage(Page.Name)]} />
             </Footer>
         </>
     );

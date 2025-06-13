@@ -1,8 +1,10 @@
-import { useCartStore } from '../store';
-import { Header, Footer, Navigation } from './Components';
+import { useCartStore, usePageStore, Page } from '../store';
+import { Header, Footer, Navigation } from '../utils/Components';
 
 export function NamePage() {
     const setName = useCartStore((s) => s.setName);
+    const setPage = usePageStore((s) => s.setPage);
+
     return (
         <>
             <Header text={'Add your name'} />
@@ -16,7 +18,7 @@ export function NamePage() {
                             setName(e.target.value);
                         }}></input>
                 </div>
-                <Navigation />
+                <Navigation texts={['Back', 'Share']} actions={[() => setPage(Page.Glass), () => createThela()]} />
             </Footer>
         </>
     );

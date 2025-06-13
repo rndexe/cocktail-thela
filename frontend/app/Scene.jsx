@@ -14,7 +14,6 @@ export default function Scene() {
     switch (page) {
         case Page.Landing:
             return <FullThela theme="apothecary" />;
-            break;
         case Page.Theme:
             return (
                 <group scale={0.5} position={[0, 0, 0.5]}>
@@ -23,7 +22,6 @@ export default function Scene() {
                     <FullThela theme="concert" position-x={1} position-z={-1} />
                 </group>
             );
-            break;
         case Page.ViewCarts:
             return null;
         case Page.ViewSingleCart:

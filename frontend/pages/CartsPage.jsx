@@ -2,7 +2,7 @@ import { API_URL } from '../utils/constants';
 import { getThelaImageList } from '../utils/getThelas';
 import { useEffect, useState } from 'react';
 import { Page, usePageStore } from '../store';
-import { Footer } from './Components';
+import { Footer } from '../utils/Components';
 
 export default function CartsPage() {
     const [thelas, setThelas] = useState([]);

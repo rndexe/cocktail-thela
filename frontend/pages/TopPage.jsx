@@ -1,13 +1,15 @@
-import { useCartStore } from '../store';
-import { Header, Footer, Navigation, Options } from './Components';
+import { useCartStore, usePageStore, Page } from '../store';
+import { Header, Footer, Navigation, Options } from '../utils/Components';
 
 export default function TopPage() {
+    const setPage = usePageStore((s) => s.setPage);
+
     return (
         <>
             <Header text={'Choose your Top'} />
             <Footer>
                 <Tops />
-                <Navigation />
+                <Navigation actions={[() => setPage(Page.Display), () => setPage(Page.Appliances)]} />
             </Footer>
         </>
     );

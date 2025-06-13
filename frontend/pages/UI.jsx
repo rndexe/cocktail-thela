@@ -1,5 +1,5 @@
 import { usePageStore, Page } from '../store';
-import { Header, Footer, Navigation } from './Components';
+import { Header, Footer, Navigation } from '../utils/Components';
 import ThemePage from './ThemePage';
 import ModulesPage from './ModulesPage';
 import DisplayPage from './DisplayPage';
@@ -22,6 +22,7 @@ export default function UI() {
 
 function PageUI() {
     const page = usePageStore((state) => state.page);
+    const setPage = usePageStore((state) => state.setPage);
 
     switch (page) {
         case Page.Landing:
@@ -29,7 +30,11 @@ function PageUI() {
                 <>
                     <Header text={'Cocktail Thela'} type={'landing'} />
                     <Footer>
-                        <Navigation />
+                        <Navigation
+                            thick
+                            texts={['View Carts', 'Make Cart']}
+                            actions={[() => setPage(Page.ViewCarts), () => setPage(Page.Theme)]}
+                        />
                     </Footer>
                 </>
             );

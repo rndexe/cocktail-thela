@@ -1,15 +1,15 @@
-import { useCartStore } from '../store';
-import { Header, Footer, Navigation, Options } from './Components';
-
-export const appliances_names = ['dishwasher', 'ice-machine', 'solar-panel'];
+import { useCartStore, usePageStore, Page, appliances_names } from '../store';
+import { Header, Footer, Navigation, Options } from '../utils/Components';
 
 export default function AppliancePage() {
+    const setPage = usePageStore((s) => s.setPage);
+
     return (
         <>
             <Header text={'Choose your Appliances'} />
             <Footer>
                 <Appliances />
-                <Navigation />
+                <Navigation actions={[() => setPage(Page.Top), () => setPage(Page.Glass)]} />
             </Footer>
         </>
     );
