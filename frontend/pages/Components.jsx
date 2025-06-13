@@ -4,7 +4,6 @@ import createThela from '../utils/createThela';
 import { clsx } from 'clsx';
 
 export function Header({ type, text }) {
-    // console.log(type);
     const className = clsx('text-black text-center', {
         'font-heading text-[4.0rem]': type == 'landing',
         'font-body text-xl': !type,
@@ -20,26 +19,22 @@ export function Navigation() {
     const page = usePageStore((state) => state.page);
     const setPage = usePageStore((state) => state.setPage);
 
-    if (page != Page.ViewCarts && page != Page.ViewSingleCart) {
-        return (
-            <div className="flex gap-px">
-                <NavButton
-                    onClick={() => {
-                        setPage(PageInfo[page].button1);
-                    }}>
-                    {PageInfo[page].button1text}
-                </NavButton>
-                <NavButton
-                    onClick={() => {
-                        page == Page.Name ? createThela() : setPage(PageInfo[page].button2);
-                    }}>
-                    {PageInfo[page].button2text}
-                </NavButton>
-            </div>
-        );
-    } else {
-        return null;
-    }
+    return (
+        <div className="flex gap-px">
+            <NavButton
+                onClick={() => {
+                    setPage(PageInfo[page].button1);
+                }}>
+                {PageInfo[page].button1text}
+            </NavButton>
+            <NavButton
+                onClick={() => {
+                    page == Page.Name ? createThela() : setPage(PageInfo[page].button2);
+                }}>
+                {PageInfo[page].button2text}
+            </NavButton>
+        </div>
+    );
 }
 
 export function NavButton({ children, ...props }) {
