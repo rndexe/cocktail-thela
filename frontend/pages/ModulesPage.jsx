@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import { useCartStore } from '../store';
+import { Header, Footer, Navigation } from './Components';
 
 export default function ModulesPage() {
     return (
-        <div className="grid grid-cols-2 gap-px mb-1">
-            <CounterButton text="Whiskey" />
-            <CounterButton text="Rum" />
-            <CounterButton text="Gin" />
-            <CounterButton text="Tequila" />
-            <CounterButton text="Vodka" className="col-span-2 w-1/2 justify-self-center" />
-        </div>
+        <>
+            <Header text={'Choose Alcohol Modules'} />
+            <Footer>
+                <div className="grid grid-cols-2 gap-px mb-1">
+                    <CounterButton text="Whiskey" />
+                    <CounterButton text="Rum" />
+                    <CounterButton text="Gin" />
+                    <CounterButton text="Tequila" />
+                    <CounterButton text="Vodka" className="col-span-2 w-1/2 justify-self-center" />
+                </div>
+                <Navigation />
+            </Footer>
+        </>
     );
 }
 

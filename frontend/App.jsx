@@ -2,12 +2,13 @@ import { Environment, Grid, OrbitControls, Stats } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import UI from './pages/UI';
 import Scene from './app/Scene';
+import { StoreLogger1 } from './utils/StoreLogger';
 
 function App() {
     return (
         <>
             <Canvas gl={{ preserveDrawingBuffer: true }} camera={{ position: [0, 3, 7], fov: 25 }}>
-                <Stats />
+                {import.meta.env.DEV && <Stats />}
                 <Grid
                     args={[8, 8]}
                     position-y={-0.841 / 2 - 0.5}
@@ -23,6 +24,7 @@ function App() {
                 <Environment preset="warehouse" environmentIntensity={1.5} />
             </Canvas>
             <UI />
+            <StoreLogger1 />
         </>
     );
 }

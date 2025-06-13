@@ -1,7 +1,19 @@
 import { useCartStore } from '../store';
-import { clsx } from 'clsx';
+import { Header, Footer, Navigation, Options } from './Components';
 
 export default function DisplayPage() {
+    return (
+        <>
+            <Header text={'Choose your Display'} />
+            <Footer>
+                <Displays />
+                <Navigation />
+            </Footer>
+        </>
+    );
+}
+
+function Displays() {
     const setDisplay = useCartStore((s) => s.setDisplay);
     const display = useCartStore((s) => s.display);
 
@@ -10,25 +22,14 @@ export default function DisplayPage() {
     }
 
     return (
-        <div className="btn-ctr ">
-            <button
-                onClick={handleClick}
-                data-choice="tall"
-                className={clsx('btn rounded-l-lg', display == 'tall' && 'bg-highlight')}>
-                Tall
-            </button>
-            <button
-                onClick={handleClick}
-                data-choice="medium"
-                className={clsx('btn ', display == 'medium' && 'bg-highlight')}>
-                Medium
-            </button>
-            <button
-                onClick={handleClick}
-                data-choice="short"
-                className={clsx('btn rounded-r-lg ', display == 'short' && 'bg-highlight')}>
-                Short
-            </button>
-        </div>
+        <Options
+            items={[
+                { text: 'Tall', value: 'tall' },
+                { text: 'Medium', value: 'medium' },
+                { text: 'Short', value: 'short' },
+            ]}
+            onChange={handleClick}
+            storeValue={display}
+        />
     );
 }

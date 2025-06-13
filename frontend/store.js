@@ -14,12 +14,6 @@ export const Page = {
     ViewSingleCart: 'ViewSingleCart',
 };
 
-export const Theme = {
-    Apothecary: 'apothecary',
-    Summer: 'summer',
-    Concert: 'concert',
-};
-
 export const usePageStore = create()(
     persist(
         (set) => ({
@@ -36,7 +30,6 @@ export const usePageStore = create()(
 
 const initialState = {
     theme: null,
-    modulecount: 0,
     modules: [null, null, null, null, null],
     display: null,
     top: null,

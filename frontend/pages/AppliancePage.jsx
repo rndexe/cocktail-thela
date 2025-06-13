@@ -1,33 +1,38 @@
 import { useCartStore } from '../store';
-import { clsx } from 'clsx';
+import { Header, Footer, Navigation, Options } from './Components';
+
+export const appliances_names = ['dishwasher', 'ice-machine', 'solar-panel'];
 
 export default function AppliancePage() {
+    return (
+        <>
+            <Header text={'Choose your Appliances'} />
+            <Footer>
+                <Appliances />
+                <Navigation />
+            </Footer>
+        </>
+    );
+}
+
+function Appliances() {
     const setAppliances = useCartStore((s) => s.setAppliances);
     const appliances = useCartStore((s) => s.appliances);
+
     function handleClick(e) {
         setAppliances(e.target.dataset.choice);
     }
 
     return (
-        <div className="btn-ctr text-base">
-            <button
-                onClick={handleClick}
-                data-choice="dishwasher"
-                className={clsx('btn rounded-l-lg', appliances[0] && 'bg-highlight')}>
-                Dishwasher
-            </button>
-            <button
-                onClick={handleClick}
-                data-choice="ice-machine"
-                className={clsx('btn', appliances[1] && 'bg-highlight')}>
-                Ice Machine
-            </button>
-            <button
-                onClick={handleClick}
-                data-choice="solar-panel"
-                className={clsx('btn rounded-r-lg', appliances[2] && 'bg-highlight')}>
-                Solar Panel
-            </button>
-        </div>
+        <Options
+            items={[
+                { text: 'Dishwasher', value: appliances_names[0] },
+                { text: 'Ice Machine', value: appliances_names[1] },
+                { text: 'Solar Panel', value: appliances_names[2] },
+            ]}
+            onChange={handleClick}
+            storeValue={appliances}
+            className={'text-base'}
+        />
     );
 }

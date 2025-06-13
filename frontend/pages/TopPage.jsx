@@ -1,7 +1,19 @@
 import { useCartStore } from '../store';
-import { clsx } from 'clsx';
+import { Header, Footer, Navigation, Options } from './Components';
 
 export default function TopPage() {
+    return (
+        <>
+            <Header text={'Choose your Top'} />
+            <Footer>
+                <Tops />
+                <Navigation />
+            </Footer>
+        </>
+    );
+}
+
+function Tops() {
     const setTop = useCartStore((s) => s.setTop);
     const top = useCartStore((s) => s.top);
 
@@ -10,25 +22,14 @@ export default function TopPage() {
     }
 
     return (
-        <div className="btn-ctr">
-            <button
-                onClick={handleClick}
-                data-choice="wooden"
-                className={clsx('btn rounded-l-lg', top == 'wooden' && 'bg-highlight')}>
-                Wooden
-            </button>
-            <button
-                onClick={handleClick}
-                data-choice="canopy"
-                className={clsx('btn', top == 'canopy' && 'bg-highlight')}>
-                Canopy
-            </button>
-            <button
-                onClick={handleClick}
-                data-choice="umbrella"
-                className={clsx('btn rounded-r-lg', top == 'umbrella' && 'bg-highlight')}>
-                Umbrella
-            </button>
-        </div>
+        <Options
+            items={[
+                { text: 'Wooden', value: 'wooden' },
+                { text: 'Canopy', value: 'canopy' },
+                { text: 'Umbrella', value: 'umbrella' },
+            ]}
+            onChange={handleClick}
+            storeValue={top}
+        />
     );
 }

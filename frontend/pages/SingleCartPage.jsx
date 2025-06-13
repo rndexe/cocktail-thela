@@ -1,7 +1,7 @@
 import { Page, usePageStore, useCartStore } from '../store';
 import { getThelaById } from '../utils/getThelas';
 import { useEffect } from 'react';
-import { ButtonSection } from './Components';
+import { Footer, Header } from './Components';
 
 export default function CartsPage() {
     const id = usePageStore((s) => s.id);
@@ -27,34 +27,34 @@ export default function CartsPage() {
                 ],
                 display: response.display,
                 top: response.top,
+                name: response.name,
             });
         };
         getThela();
     }, []);
     return (
-        <div className="absolute bottom-0 top-0 left-0 right-0 pointer-events-none">
-            <div className="h-full flex flex-col justify-end px-2 pt-6 pb-1">
-                <ButtonSection>
-                    <div className="flex gap-px">
-                        <button
-                            onClick={() => {
-                                setPage(Page.ViewCarts);
-                                reset();
-                            }}
-                            className="btn rounded-l-3xl grow">
-                            Back
-                        </button>
-                        <button
-                            onClick={() => {
-                                setPage(Page.Theme);
-                                reset();
-                            }}
-                            className="btn rounded-r-3xl grow">
-                            Make your own
-                        </button>
-                    </div>
-                </ButtonSection>
-            </div>
-        </div>
+        <>
+            <Header />
+            <Footer>
+                <div className="flex gap-px">
+                    <button
+                        onClick={() => {
+                            setPage(Page.ViewCarts);
+                            reset();
+                        }}
+                        className="bg-black px-6 py-4 rounded-l-3xl ">
+                        Back
+                    </button>
+                    <button
+                        onClick={() => {
+                            setPage(Page.Theme);
+                            reset();
+                        }}
+                        className="bg-black px-6 py-4 rounded-r-3xl ">
+                        Make your own
+                    </button>
+                </div>
+            </Footer>
+        </>
     );
 }

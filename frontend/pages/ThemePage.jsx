@@ -1,33 +1,35 @@
-import { useCartStore, Theme } from '../store';
-import { clsx } from 'clsx';
+import { useCartStore } from '../store';
+import { Header, Footer, Navigation, Options } from './Components';
 
 export default function ThemePage() {
+    return (
+        <>
+            <Header text={'Choose a Theme'} />
+            <Footer>
+                <Themes />
+                <Navigation />
+            </Footer>
+        </>
+    );
+}
+
+function Themes() {
     const setTheme = useCartStore((state) => state.setTheme);
     const theme = useCartStore((state) => state.theme);
 
+    function handleClick(e) {
+        setTheme(e.target.dataset.choice);
+    }
+
     return (
-        <div className="btn-ctr ">
-            <button
-                onClick={() => {
-                    setTheme(Theme.Apothecary);
-                }}
-                className={clsx('btn rounded-l-lg', theme == 'apothecary' && 'bg-highlight')}>
-                Apothecary
-            </button>
-            <button
-                onClick={() => {
-                    setTheme(Theme.Summer);
-                }}
-                className={clsx('btn ', theme == 'summer' && 'bg-highlight')}>
-                Summer
-            </button>
-            <button
-                onClick={() => {
-                    setTheme(Theme.Concert);
-                }}
-                className={clsx('btn rounded-r-lg', theme == 'concert' && 'bg-highlight')}>
-                Concert
-            </button>
-        </div>
+        <Options
+            items={[
+                { text: 'Apothecary', value: 'apotecary' },
+                { text: 'Summer', value: 'summer' },
+                { text: 'Concert', value: 'concert' },
+            ]}
+            onChange={handleClick}
+            storeValue={theme}
+        />
     );
 }

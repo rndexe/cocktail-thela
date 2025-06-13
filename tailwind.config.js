@@ -13,9 +13,6 @@ export default {
                 heading: 'Viaoda Libre',
                 body: 'Simonetta',
             },
-            borderRadius: {
-                lg: '1rem',
-            },
         },
     },
     plugins: [],
