@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useCartStore } from '../store';
 
-export function StoreLogger1() {
+export function StoreLogger() {
     useEffect(() => {
         const unsub = useCartStore.subscribe((state, prevState) => {
             console.log('📦 Zustand Page change:');
-            // console.log(prevState);
             console.log(state);
         });
         return unsub;

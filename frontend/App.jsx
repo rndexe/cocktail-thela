@@ -1,8 +1,9 @@
 import { Environment, Grid, OrbitControls, Stats } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import UI from './pages/UI';
-import Scene from './app/Scene';
-import { StoreLogger1 } from './utils/StoreLogger';
+import Scene from './scenes/Scene';
+import { Toaster } from 'sonner';
+import { StoreLogger } from './utils/StoreLogger';
 
 function App() {
     return (
@@ -24,7 +25,15 @@ function App() {
                 <Environment preset="warehouse" environmentIntensity={1.5} />
             </Canvas>
             <UI />
-            <StoreLogger1 />
+            <Toaster
+                position="top-center"
+                toastOptions={{
+                    classNames: {
+                        toast: '!bg-neutral-700 !text-text',
+                    },
+                }}
+            />
+            {/* <StoreLogger /> */}
         </>
     );
 }

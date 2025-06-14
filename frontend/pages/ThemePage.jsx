@@ -24,7 +24,7 @@ function Themes() {
     return (
         <Options
             items={[
-                { text: 'Apothecary', value: 'apotecary' },
+                { text: 'Apothecary', value: 'apothecary' },
                 { text: 'Summer', value: 'summer' },
                 { text: 'Concert', value: 'concert' },
             ]}

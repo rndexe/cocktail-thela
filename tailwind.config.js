@@ -4,14 +4,15 @@ export default {
     theme: {
         extend: {
             colors: {
-                bg: '#BBBBBB',
-                text: '#FFFFFF',
+                bg: '#9ca3af',
+                text: '#d1d5db',
                 black: '#262626',
                 highlight: '#404040',
             },
             fontFamily: {
                 heading: 'Viaoda Libre',
-                body: 'Simonetta',
+                body: 'Vollkorn',
+                mono: 'Roboto mono',
             },
         },
     },

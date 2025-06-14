@@ -4,7 +4,7 @@ import { Link } from 'wouter';
 export function Header({ type, text }) {
     const className = clsx('text-black text-center', {
         'font-heading text-[4.0rem]': type == 'landing',
-        'font-body text-xl': !type,
+        'font-heading text-2xl': !type,
     });
     return <h1 className={className}>{text}</h1>;
 }
@@ -15,7 +15,7 @@ export function Footer({ children }) {
 
 export function Navigation({ texts = ['Back', 'Next'], actions, thick }) {
     return (
-        <div className="flex gap-px">
+        <div className="flex gap-px border border-text rounded-2xl">
             <NavButton action={actions[0]} thick={thick}>
                 {texts[0]}
             </NavButton>
@@ -27,10 +27,13 @@ export function Navigation({ texts = ['Back', 'Next'], actions, thick }) {
 }
 
 export function NavButton({ children, thick, action }) {
-    const className = clsx('bg-black text-center active:bg-highlight basis-1/2 first:rounded-l-3xl last:rounded-r-3xl', {
-        'py-4': thick,
-        'py-2': !thick,
-    });
+    const className = clsx(
+        'text-center basis-1/2 first:rounded-l-2xl last:rounded-r-2xl bg-gradient-to-b from-neutral-700 to-black active:to-neutral-700',
+        {
+            'py-4': thick,
+            'py-2': !thick,
+        },
+    );
     if (typeof action == 'string') {
         return (
             <Link className={className} to={action}>
@@ -57,9 +60,9 @@ export function Options({ items, storeValue, onChange, className }) {
                         onClick={onChange}
                         data-choice={item.value}
                         className={clsx(
-                            'bg-black px-6 py-4 grow first:rounded-l-2xl last:rounded-r-2xl',
+                            'bg-gradient-to-b from-neutral-700 to-black px-5 py-3 grow first:rounded-l-xl last:rounded-r-xl',
                             {
-                                'bg-highlight': isHighlighted,
+                                'to-neutral-600': isHighlighted,
                             },
                             className,
                         )}>

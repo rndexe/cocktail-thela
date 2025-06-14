@@ -2,11 +2,11 @@ import { useCartStore } from '../store';
 import { getThelaById } from '../utils/getThelas';
 import { useEffect } from 'react';
 import { Footer, Header } from '../utils/Components';
-import { useLocation, useParams } from 'wouter';
+import { useParams } from 'wouter';
+import { navigate } from 'wouter/use-browser-location';
 
 export default function SingleCartPage() {
     const reset = useCartStore((s) => s.reset);
-    const [location, navigate] = useLocation();
 
     const params = useParams();
 
@@ -46,7 +46,7 @@ export default function SingleCartPage() {
                             navigate('/');
                             reset();
                         }}
-                        className="bg-black px-6 py-4 rounded-l-3xl grow">
+                        className="px-6 py-4 rounded-l-xl basis-1/2 bg-gradient-to-b from-neutral-700 to-black active:to-neutral-700">
                         Back
                     </button>
                     <button
@@ -54,7 +54,7 @@ export default function SingleCartPage() {
                             navigate('~/make/theme');
                             reset();
                         }}
-                        className="bg-black px-6 py-4 rounded-r-3xl grow">
+                        className="px-6 py-4 rounded-r-xl basis-1/2 bg-gradient-to-b from-neutral-700 to-black active:to-neutral-700">
                         Make your own
                     </button>
                 </div>

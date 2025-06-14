@@ -3,7 +3,7 @@ import { useTexture } from '@react-three/drei';
 export function getThemeColor(theme) {
     switch (theme) {
         case 'concert':
-            return '#000000';
+            return '#121212';
         case 'summer':
             return '#FFFFFF';
         default:

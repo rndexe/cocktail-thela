@@ -20,19 +20,19 @@ export default function CartsPage() {
             <div className="grid grid-cols-2 p-4 gap-2 overflow-scroll pointer-events-auto">
                 {thelas.map((data) => {
                     return (
-                        <Link to={`/${data.id}`} className="bg-white rounded-md shadow" key={data.id}>
+                        <Link to={`/${data.id}`} className="bg-neutral-100 rounded-lg shadow" key={data.id}>
                             <img
                                 className="aspect-square object-contain"
                                 src={`${API_URL}/files/thela/${data.id}/${data.image}`}
                             />
-                            <div>{`${data.name}'s Thela`}</div>
+                            <div className='text-center border-t border-neutral-300 bg-neutral-100 rounded-b-lg'>{`${data.name}'s Thela`}</div>
                         </Link>
                     );
                 })}
             </div>
             <Footer>
-                <div className="flex justify-center">
-                    <Link to="~/" className="bg-black px-8 py-2 rounded-full">
+                <div className="flex justify-center pt-4">
+                    <Link to="~/" className="px-8 py-3 rounded-2xl bg-gradient-to-b from-neutral-700 to-black active:to-neutral-700">
                         Home
                     </Link>
                 </div>

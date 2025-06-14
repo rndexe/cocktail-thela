@@ -9,6 +9,7 @@ import { useLocation } from 'wouter';
 
 export default function Scene() {
     const [location] = useLocation();
+    // console.log(location);
     const theme = useCartStore((s) => s.theme);
 
     switch (location) {
@@ -17,12 +18,17 @@ export default function Scene() {
         case '/make/theme':
             return (
                 <group scale={0.5} position={[0, 0, 0.5]}>
-                    <FullThela theme="summer" />
-                    <FullThela theme="apothecary" position-x={-1} position-z={-1} />
-                    <FullThela theme="concert" position-x={1} position-z={-1} />
+                    <FullThela theme="summer" scale={theme == 'summer' ? 1.05 : 1} />
+                    <FullThela
+                        theme="apothecary"
+                        position-x={-1}
+                        position-z={-1}
+                        scale={theme == 'apothecary' ? 1.05 : 1}
+                    />
+                    <FullThela theme="concert" position-x={1} position-z={-1} scale={theme == 'concert' ? 1.05 : 1} />
                 </group>
             );
-        case '/view/':
+        case '/view':
             return null;
         default:
             return <Thela theme={theme} />;

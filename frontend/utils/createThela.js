@@ -1,5 +1,7 @@
 import { useCartStore } from '../store';
 import { glass_names, appliances_names } from '../store';
+import { navigate } from 'wouter/use-browser-location';
+import { toast } from 'sonner';
 
 export default async function createThela() {
     const state = useCartStore.getState();
@@ -30,8 +32,15 @@ export default async function createThela() {
             body: formData,
         });
 
-        const result = await response.text();
-        console.log(result);
+        if (response.ok) {
+            // const result = await response.text();
+            // console.log(result);
+            toast.success('Your Thela has been shared successfully!', {
+                duration: 2000,
+            });
+        }
+
+        navigate('/');
     } catch (error) {
         console.error('Upload failed:', error);
     }
