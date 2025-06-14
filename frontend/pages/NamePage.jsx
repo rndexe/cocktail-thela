@@ -19,6 +19,7 @@ export default function NamePage() {
                         name="name"
                         className="w-full rounded-lg bg-black text-2xl p-2"
                         type="text"
+                        maxlength="10"
                         onChange={(e) => {
                             setName(e.target.value);
                         }}></input>
