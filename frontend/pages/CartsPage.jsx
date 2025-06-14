@@ -20,10 +20,10 @@ export default function CartsPage() {
             <div className="grid grid-cols-2 p-4 gap-3 overflow-scroll pointer-events-auto rounded-2xl bg-black/50">
                 {thelas.map((data) => {
                     return (
-                        <Link to={`/${data.id}`} className="bg-neutral-100 rounded-lg shadow" key={data.id}>
+                        <Link to={`/${data.id}`} className="bg-neutral-300 rounded-lg shadow" key={data.id}>
                             <img
-                                className="aspect-square object-contain"
-                                src={`${API_URL}/files/thela/${data.id}/${data.image}`}
+                                className="aspect-square object-contain h-36 w-full"
+                                src={`${API_URL}/files/thela/${data.id}/${data.image}?thumb=0x144`}
                             />
                             <div className='text-center border-t border-neutral-300 bg-neutral-100 rounded-b-lg'>{`${data.name}'s Thela`}</div>
                         </Link>

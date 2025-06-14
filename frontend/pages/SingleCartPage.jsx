@@ -51,7 +51,7 @@ export default function SingleCartPage() {
                     </button>
                     <button
                         onClick={() => {
-                            navigate('~/make/theme');
+                            navigate('/make/theme');
                             reset();
                         }}
                         className="px-6 py-4 rounded-r-xl basis-1/2 bg-gradient-to-b from-neutral-700 to-black active:to-neutral-700">

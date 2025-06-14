@@ -22,7 +22,7 @@ function App() {
                 <Scene />
                 {import.meta.env.DEV && <OrbitControls />}
                 {import.meta.env.PROD && <OrbitControls enablePan={false} maxPolarAngle={1.0} minPolarAngle={1.0} />}
-                <Environment preset="warehouse" environmentIntensity={1.5} />
+                <Environment preset="warehouse" environmentIntensity={2.0} />
             </Canvas>
             <UI />
             <Toaster
