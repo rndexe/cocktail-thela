@@ -1,4 +1,4 @@
-import { Environment, Grid, OrbitControls, Stats } from '@react-three/drei';
+import { Environment, Grid, Loader, OrbitControls, Stats } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import UI from './pages/UI';
 import Scene from './scenes/Scene';
@@ -20,8 +20,8 @@ function App() {
                     sectionColor={'white'}
                 />
                 <Scene />
-                <OrbitControls />
-                {/* <OrbitControls enablePan={false} enableZoom={false} maxPolarAngle={1.0} minPolarAngle={1.0}  /> */}
+                {import.meta.env.DEV && <OrbitControls />}
+                {import.meta.env.PROD && <OrbitControls enablePan={false} maxPolarAngle={1.0} minPolarAngle={1.0} />}
                 <Environment preset="warehouse" environmentIntensity={1.5} />
             </Canvas>
             <UI />
@@ -33,7 +33,8 @@ function App() {
                     },
                 }}
             />
-            <StoreLogger />
+            {import.meta.env.DEV && <StoreLogger />}
+            <Loader />
         </>
     );
 }
