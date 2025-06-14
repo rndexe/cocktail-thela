@@ -15,7 +15,7 @@ export function Footer({ children }) {
 
 export function Navigation({ texts = ['Back', 'Next'], actions, thick }) {
     return (
-        <div className="flex gap-px border border-text rounded-2xl">
+        <div className="flex gap-px border border-neutral-300 rounded-2xl">
             <NavButton action={actions[0]} thick={thick}>
                 {texts[0]}
             </NavButton>
@@ -51,7 +51,7 @@ export function NavButton({ children, thick, action }) {
 
 export function Options({ items, storeValue, onChange, className }) {
     return (
-        <div className="flex gap-px mb-1">
+        <div className="flex gap-px mb-1 border border-neutral-300">
             {items.map((item, index) => {
                 const isHighlighted = Array.isArray(storeValue) ? storeValue[index] : storeValue == item.value;
                 return (

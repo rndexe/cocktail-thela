@@ -58,7 +58,7 @@ function CounterButton({ text, className }) {
 
     return (
         <div
-            className={`bg-gradient-to-b from-neutral-700 to-black flex items-center justify-between pl-4 py-0 text-lg text-text basis-1/2 rounded-lg ${className}`}>
+            className={`bg-gradient-to-b from-neutral-700 to-black flex items-center justify-between pl-4 py-0 text-lg text-text basis-1/2 rounded-lg border border-neutral-300 ${className}`}>
             <div>{text}</div>
             <div className="font-mono flex items-center gap-1 text-xl">
                 <button onClick={decrease} className="px-3 py-1 active:bg-bg">

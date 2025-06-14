@@ -17,7 +17,7 @@ export default function CartsPage() {
 
     return (
         <>
-            <div className="grid grid-cols-2 p-4 gap-2 overflow-scroll pointer-events-auto">
+            <div className="grid grid-cols-2 p-4 gap-3 overflow-scroll pointer-events-auto rounded-2xl bg-black/50">
                 {thelas.map((data) => {
                     return (
                         <Link to={`/${data.id}`} className="bg-neutral-100 rounded-lg shadow" key={data.id}>

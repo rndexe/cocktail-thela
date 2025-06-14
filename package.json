@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "concurrently --names vite,pocketbase -c auto,auto \"npm run dev:vite\" \"npm run dev:pb\"",
     "dev:vite": "vite",
-    "dev:pb": "./backend/pocketbase serve",
+    "dev:pb": "./backend/pocketbase serve --http=\"0.0.0.0:8090\"",
     "build": "vite build",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "preview": "concurrently --names vite, pocketbase -c auto, auto "
   },
   "dependencies": {
     "@react-three/drei": "^10.0.8",

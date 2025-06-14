@@ -21,11 +21,11 @@ export default function SingleCartPage() {
                 modules: response.modules.split(','),
                 appliances: [
                     response.appliances.includes('dishwasher'),
-                    response.appliances.includes('ice machine'),
-                    response.appliances.includes('solar panel'),
+                    response.appliances.includes('ice-machine'),
+                    response.appliances.includes('solar-panel'),
                 ],
                 glasses: [
-                    response.glasses.includes('rock glasses'),
+                    response.glasses.includes('rocks'),
                     response.glasses.includes('highball'),
                     response.glasses.includes('martini'),
                 ],

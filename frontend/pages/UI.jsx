@@ -33,7 +33,6 @@ export default function UI() {
 
                     <Route>404, not found</Route>
                 </Switch>
-                {/* <PageUI /> */}
             </div>
         </div>
     );
