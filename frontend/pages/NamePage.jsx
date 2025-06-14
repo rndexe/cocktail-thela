@@ -2,10 +2,11 @@ import { toast } from 'sonner';
 import { useCartStore } from '../store';
 import { Header, Footer, Navigation } from '../utils/Components';
 import createThela from '../utils/createThela';
+import { useRef } from 'react';
 
 export default function NamePage() {
     const setName = useCartStore((s) => s.setName);
-    const name = useCartStore((s) => s.name);
+    const ref = useRef();
 
     return (
         <>
@@ -13,6 +14,7 @@ export default function NamePage() {
             <Footer>
                 <div className="w-full mb-1">
                     <input
+                        ref={ref}
                         name="name"
                         className="w-full rounded-lg bg-black text-2xl p-2"
                         type="text"
@@ -25,7 +27,7 @@ export default function NamePage() {
                     actions={[
                         '/glass',
                         () => {
-                            if (!name) toast.warning('Please add a name');
+                            if (!ref.current.value) toast.warning('Please add a name');
                             else createThela();
                         },
                     ]}
