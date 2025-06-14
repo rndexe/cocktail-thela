@@ -61,7 +61,7 @@ routerAdd('GET', '/api/getThelas', (e) => {
             name: '',
         }),
     );
-    $app.db().select('id', 'name', 'image').from('thela').all(result);
+    $app.db().select('id', 'name', 'image').from('thela').orderBy('updated DESC').all(result);
 
     return e.json(200, result);
 });

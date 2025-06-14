@@ -2,10 +2,11 @@ import { toast } from 'sonner';
 import { useCartStore } from '../store';
 import { Header, Footer, Navigation } from '../utils/Components';
 import createThela from '../utils/createThela';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function NamePage() {
     const setName = useCartStore((s) => s.setName);
+    const [disabled, setDisabled] = useState(false);
     const ref = useRef();
 
     return (
@@ -23,12 +24,20 @@ export default function NamePage() {
                         }}></input>
                 </div>
                 <Navigation
+                    disabled={disabled}
                     texts={['Back', 'Share']}
                     actions={[
                         '/glass',
                         () => {
                             if (!ref.current.value) toast.warning('Please add a name');
-                            else createThela();
+                            else {
+                                setDisabled(true);
+                                toast.promise(createThela(), {
+                                    loading: 'Sharing...',
+                                    success: 'Your Cart has been shared successfully!',
+                                    error: 'Oops! Something went wrong.',
+                                });
+                            }
                         },
                     ]}
                 />

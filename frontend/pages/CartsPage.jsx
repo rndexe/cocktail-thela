@@ -7,8 +7,8 @@ import { Link } from 'wouter';
 export default function CartsPage() {
     return (
         <>
-            <div className='grow pointer-events-auto'>
-                <div className="grid grid-cols-2 p-4 gap-3 overflow-auto rounded-2xl bg-black/50  min-h-full">
+            <div className="grow pointer-events-auto h-full bg-black/50 rounded-2xl">
+                <div className="grid grid-cols-2 p-4 gap-3 overflow-auto">
                     <Carts />
                 </div>
             </div>

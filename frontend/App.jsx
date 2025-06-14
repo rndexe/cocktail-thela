@@ -30,7 +30,7 @@ function App() {
                 duration={2000}
                 toastOptions={{
                     classNames: {
-                        toast: '!bg-neutral-700 !text-text',
+                        toast: '!bg-neutral-200 !text-neutral-700',
                     },
                 }}
             />
