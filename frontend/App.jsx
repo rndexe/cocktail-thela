@@ -27,6 +27,7 @@ function App() {
             <UI />
             <Toaster
                 position="top-center"
+                duration={2000}
                 toastOptions={{
                     classNames: {
                         toast: '!bg-neutral-700 !text-text',

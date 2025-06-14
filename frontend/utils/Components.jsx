@@ -51,7 +51,7 @@ export function NavButton({ children, thick, action }) {
 
 export function Options({ items, storeValue, onChange, className }) {
     return (
-        <div className="flex gap-px mb-1 border border-neutral-300">
+        <div className="flex gap-px mb-1 rounded-xl border border-neutral-300">
             {items.map((item, index) => {
                 const isHighlighted = Array.isArray(storeValue) ? storeValue[index] : storeValue == item.value;
                 return (

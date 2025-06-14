@@ -40,10 +40,10 @@ export default function SingleCartPage() {
         <>
             <Header />
             <Footer>
-                <div className="flex gap-px">
+                <div className="flex gap-px border border-neutral-300 rounded-xl">
                     <button
                         onClick={() => {
-                            navigate('/');
+                            navigate('/view');
                             reset();
                         }}
                         className="px-6 py-4 rounded-l-xl basis-1/2 bg-gradient-to-b from-neutral-700 to-black active:to-neutral-700">

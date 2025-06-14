@@ -25,6 +25,7 @@ export default async function createThela() {
 
     const file = new File([blob], 'image.png');
     formData.append('image', file);
+    navigate('/');
 
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/addThela`, {
@@ -35,12 +36,10 @@ export default async function createThela() {
         if (response.ok) {
             // const result = await response.text();
             // console.log(result);
-            toast.success('Your Thela has been shared successfully!', {
-                duration: 2000,
-            });
+            toast.success('Your Cart has been shared successfully!');
+        } else {
+            toast.error('Oops, something went wrong');
         }
-
-        navigate('/');
     } catch (error) {
         console.error('Upload failed:', error);
     }
