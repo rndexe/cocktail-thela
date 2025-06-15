@@ -21,8 +21,24 @@ function App() {
                     sectionColor={'white'}
                 />
                 <Scene />
-                {import.meta.env.DEV && <OrbitControls />}
-                {import.meta.env.PROD && <OrbitControls enablePan={false} maxPolarAngle={1.5} minPolarAngle={1.0} />}
+                {import.meta.env.PROD && (
+                    <OrbitControls
+                        enablePan={false}
+                        maxPolarAngle={1.5}
+                        minPolarAngle={1.0}
+                        minDistance={4}
+                        maxDistance={20}
+                    />
+                )}
+                {import.meta.env.DEV && (
+                    <OrbitControls
+                        enablePan={false}
+                        maxPolarAngle={1.5}
+                        minPolarAngle={1.0}
+                        minDistance={4}
+                        maxDistance={20}
+                    />
+                )}
                 <Environment preset="warehouse" environmentIntensity={2.0} />
             </Canvas>
             <UI />
