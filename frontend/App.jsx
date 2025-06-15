@@ -6,7 +6,7 @@ import { Toaster } from 'sonner';
 import { StoreLogger } from './utils/StoreLogger';
 
 function App() {
-    console.log('1.0.2');
+    console.log('1.0.3');
     return (
         <>
             <Canvas gl={{ preserveDrawingBuffer: true }} camera={{ position: [0, 3, 7], fov: 25 }}>
