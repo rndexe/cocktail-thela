@@ -34,7 +34,7 @@ export default function NamePage() {
                             else {
                                 setDisabled(true);
                                 toast.promise(createThela(), {
-                                    loading: 'Sharing...',
+                                    loading: 'Saving...',
                                     success: 'Your Cart has been saved successfully!',
                                     error: 'Oops! Something went wrong.',
                                 });
