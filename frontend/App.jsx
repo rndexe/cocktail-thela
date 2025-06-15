@@ -6,6 +6,7 @@ import { Toaster } from 'sonner';
 import { StoreLogger } from './utils/StoreLogger';
 
 function App() {
+    console.log('1.0.2');
     return (
         <>
             <Canvas gl={{ preserveDrawingBuffer: true }} camera={{ position: [0, 3, 7], fov: 25 }}>
@@ -21,7 +22,7 @@ function App() {
                 />
                 <Scene />
                 {import.meta.env.DEV && <OrbitControls />}
-                {import.meta.env.PROD && <OrbitControls enablePan={false} maxPolarAngle={1.0} minPolarAngle={1.0} />}
+                {import.meta.env.PROD && <OrbitControls enablePan={false} maxPolarAngle={1.5} minPolarAngle={1.0} />}
                 <Environment preset="warehouse" environmentIntensity={2.0} />
             </Canvas>
             <UI />

@@ -53,12 +53,12 @@ function Carts() {
         );
     return thelas.map((data) => {
         return (
-            <Link to={`/${data.id}`} className="self-start bg-neutral-300 rounded-lg shadow" key={data.id}>
+            <Link to={`/${data.id}`} className="self-start bg-neutral-100 rounded-lg shadow" key={data.id}>
                 <img
                     className="aspect-square object-contain h-36 w-full"
                     src={`${API_URL}/files/thela/${data.id}/${data.image}?thumb=0x144`}
                 />
-                <div className="text-center border-t border-neutral-300 bg-neutral-100 rounded-b-lg">{`${data.name}'s Cart`}</div>
+                <div className="text-center border-t border-neutral-300 bg-neutral-300 rounded-b-lg">{`${data.name}'s Cart`}</div>
             </Link>
         );
     });

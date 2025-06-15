@@ -11,7 +11,6 @@ import NamePage from './NamePage';
 import { Switch, Route } from 'wouter';
 
 export default function UI() {
-    console.log('1.0.0');
     return (
         <div className="absolute inset-0 pointer-events-none">
             <div className="h-full flex flex-col justify-between px-2 pt-6 pb-1">
