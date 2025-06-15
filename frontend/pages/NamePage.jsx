@@ -26,7 +26,7 @@ export default function NamePage() {
                 </div>
                 <Navigation
                     disabled={disabled}
-                    texts={['Back', 'Share']}
+                    texts={['Back', 'Save']}
                     actions={[
                         '/glass',
                         () => {
@@ -35,7 +35,7 @@ export default function NamePage() {
                                 setDisabled(true);
                                 toast.promise(createThela(), {
                                     loading: 'Sharing...',
-                                    success: 'Your Cart has been shared successfully!',
+                                    success: 'Your Cart has been saved successfully!',
                                     error: 'Oops! Something went wrong.',
                                 });
                             }

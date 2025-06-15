@@ -7,8 +7,8 @@ import { Link } from 'wouter';
 export default function CartsPage() {
     return (
         <>
-            <div className="grow pointer-events-auto h-full bg-black/50 rounded-2xl">
-                <div className="grid grid-cols-2 p-4 gap-3 overflow-auto">
+            <div className="grow pointer-events-auto h-full bg-black/50 rounded-2xl overflow-auto border border-text">
+                <div className="grid grid-cols-2 p-4 gap-3 ">
                     <Carts />
                 </div>
             </div>
@@ -53,7 +53,7 @@ function Carts() {
         );
     return thelas.map((data) => {
         return (
-            <Link to={`/${data.id}`} className="self-start bg-neutral-100 rounded-lg shadow" key={data.id}>
+            <Link to={`/${data.id}`} className="self-start bg-gray-400 rounded-lg shadow" key={data.id}>
                 <img
                     className="aspect-square object-contain h-36 w-full"
                     src={`${API_URL}/files/thela/${data.id}/${data.image}?thumb=0x144`}

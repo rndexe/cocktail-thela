@@ -32,6 +32,15 @@ export default async function createThela() {
         });
 
         if (response.ok) {
+            const id = await response.text()
+            const url = URL.createObjectURL(file);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `cart-${id}.png`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
             navigate('/view');
         }
     } catch (error) {

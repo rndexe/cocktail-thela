@@ -26,7 +26,7 @@ routerAdd('POST', '/api/addThela', (e) => {
 
     $app.save(record);
 
-    return e.string(200, 'mil gaya');
+    return e.string(200, record.get('id'));
 });
 
 routerAdd('GET', '/api/getThelaById/{id}', (e) => {

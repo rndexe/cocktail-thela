@@ -6,10 +6,11 @@ import { Toaster } from 'sonner';
 import { StoreLogger } from './utils/StoreLogger';
 
 function App() {
-    console.log('1.0.3');
+    console.log('1.0.4');
     return (
         <>
             <Canvas gl={{ preserveDrawingBuffer: true }} camera={{ position: [0, 3, 7], fov: 25 }}>
+                <color attach="background" args={['#9ca3af']} />
                 {import.meta.env.DEV && <Stats />}
                 <Grid
                     args={[8, 8]}
