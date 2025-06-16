@@ -22,8 +22,10 @@ export default async function createThela() {
         canvas.toBlob(resolve, 'image/png');
     });
 
-    const file = new File([blob], 'image.png');
+    const file = new File([blob], 'cart.png', { type: 'image/png' });
     formData.append('image', file);
+
+    await handleShare(file);
 
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/addThela`, {
@@ -32,18 +34,35 @@ export default async function createThela() {
         });
 
         if (response.ok) {
-            const id = await response.text()
-            const url = URL.createObjectURL(file);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `cart-${id}.png`;
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
+            const id = await response.text();
             navigate('/view');
         }
     } catch (error) {
         console.error('Upload failed:', error);
     }
 }
+
+const handleShare = async (file) => {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+            await navigator.share({
+                // title: '',
+                // text: '',
+                files: [file],
+            });
+        } catch (err) {
+            console.warn('Share failed or cancelled:', err);
+        }
+    } else {
+        console.warn('Cannot share file. Falling back...');
+        // fallback to download
+        const url = URL.createObjectURL(file);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `cart.png`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    }
+};
