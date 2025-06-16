@@ -15,7 +15,9 @@ export function Model({ theme, ...props }) {
             <mesh geometry={nodes.Mesh_1.geometry}>
                 <meshStandardMaterial map={tex2} color={color} />
             </mesh>
-            <mesh geometry={nodes.Mesh_2.geometry} material={nodes.Mesh_2.material} />
+            <mesh geometry={nodes.Mesh_2.geometry}>
+                <meshStandardMaterial color="#b5a642" metalness={1} roughness={0.3} />
+            </mesh>
         </group>
     );
 }

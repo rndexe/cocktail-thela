@@ -12,7 +12,7 @@ import { Switch, Route } from 'wouter';
 
 export default function UI() {
     return (
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none max-w-screen-sm mx-auto">
             <div className="h-full flex flex-col justify-between px-2 pt-6 pb-1">
                 <Switch>
                     <Route path="/" component={Landing} />
